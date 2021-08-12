@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MTG RULEBOOK</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'rules/style.css' %}">
+  </head>
+  <body>
+    <header>mtg rulebook</header>
+    <br>
+    <br>
+    <section>
+      <nav>
+        <h2>search rules by keyword:</h2>
+        <form action="{% url 'search' %}" method="GET">
+          <input type="text" name="search" />
+            <input type="submit" value="Search" />
+            <br>
+        </form>
+        <h2> Table of Contents </h2>
+        <ul>
+        {% for chapter in chapters %}
+          <li><a href="{% url 'chapter' chapter.id %}">{{chapter.address}} {{chapter.content}}</a></li>
+          <br>
+        {% endfor %}
+        </ul>
+      </nav>
+      <article>
+         <h1>{{chapter.address}} {{chapter.content}}</h1>
+        {% for rule in rules %}
+          <br>
+            {{rule.address}} {{rule.content}}
+          <br>
+        {% endfor %}
+      </article>
+    </section>
+    <br>
+    <br>
+    <footer>
+      Source code on GitHub:
+    </footer>
+  </body>
+</html>
