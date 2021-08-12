@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.str('SECRET_KEY', 'sample_unsafe_secret')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = env.str('DEBUG', 'sample_unsafe_secret')
 
 ALLOWED_HOSTS = ['mtg-rulebook-2021.herokuapp.com']
 
